@@ -4,6 +4,7 @@
 
 #include "Dream/Application.h"
 
+#include "Dream/Log.h"
 
 //---Entry Point----------
 
