@@ -1,10 +1,13 @@
 #pragma once
 
 #include "Core.h"
-#include "Events/Event.h"
-#include "Dream/Events/ApplicationEvent.h"
 
 #include "Window.h"
+#include "Dream/LayerStack.h"
+#include "Dream/Events/Event.h"
+#include "Dream/Events/ApplicationEvent.h"
+
+
 
 namespace Dream {
 
@@ -18,11 +21,15 @@ namespace Dream {
 
 		void OnEvent(Event& e);
 
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
+
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+		LayerStack m_LayerStack;
 	};
 	//To be defined in CLIENT
 	Application* CreateApplication();
